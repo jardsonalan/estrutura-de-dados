@@ -26,33 +26,33 @@ def insertion_sort(list: list[int]) -> list[int]:
 def shell_sort(list: list[int]) -> list[int]:
     # Divide o tamanho da lista pela metade, utilizando uma divisão inteira, para pegar o intervalo da operação
     gap = len(list) // 2
-    # Verifica se o gap é maior que 0
+    
+    # Verifica se o valor do gap é ímpar e adiciona mais 1 no ciclo da operação, para executar todas as rodadas de troca
+    if gap % 2 != 0:
+        gap += 1
+
+    # Verifica se o gap é maior que 0 e executa o laço
     while gap > 0:
-        # Insertion
-        # Utiliza um for in range para percorrer o tamanho da lista
-        for i in range(len(list)):
-            # Armazena o valor atual da lista
-            current_value = list[i]
-            # Armazena a posição atual que a lista está sendo percorrida
-            index = i
+        # Utiliza um for in range para percorrer de 0 até o tamanho da lista, menos o gap
+        for index in range(0, len(list) - gap):
+            # Variável auxiliar que armazena o valor atual da lista
+            aux = list[index]
 
-            # Verifica se o valor da posição atual é maior, ou igual, que o intervalo da operação
-            # E verifica se um elemento, que está a uma certa distância, é maior que o atual
-            while index >= gap and list[index - gap] > current_value:
+            # Verifica se o próximo elemento, que está a uma certa distância, é menor que o atual
+            if list[index + gap] < aux:
                 # Operação que executa a troca dos elementos
-                # A posição atual recebe o valor da posição anterior (com a distância gap), se ele for maior
-                list[index] = list[index - gap]
-                # O valor da posição anterior (com a distância gap), recebe o valor atual que está armazenado na váriavel (current_value)
-                list[index - gap] = current_value
-                # Move o índice para trás, para a próxima posição a ser comparada
-                index -= gap
+                # A posição atual recebe o valor da posição posterior (com a distância gap), se ele for menor
+                list[index] = list[index + gap]
+                # O valor da posição posterior (com a distância gap), recebe o valor atual que está armazenado na váriavel auxiliar (aux)
+                list[index + gap] = aux
 
-        # A cada operação divide o gap pela metade, utilizando uma divisão inteira
-        gap //= 2
+        # A cada operação subtrai 1 do gap
+        gap -= 1
 
     return list
 
-lista = [i for i in range(10001)]
+# Lista Desordenada - 10000 até 0
+lista = [i for i in range(10000, -1, -1)]
 
 # Verificação do Insertion Sort
 tempo_inicial_insertion_sort = time.time()
