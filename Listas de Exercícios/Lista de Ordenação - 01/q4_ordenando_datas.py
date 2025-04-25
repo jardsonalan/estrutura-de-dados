@@ -1,7 +1,9 @@
+import math
+
 # Shell Sort
 def shell_sort(list: list[int]) -> list[int]:
     # Divide o tamanho da lista pela metade, utilizando uma divisão inteira, para pegar o intervalo da operação e soma mais 1 para executar todas as rodadas de verificação
-    gap = (len(list) // 2) + 1
+    gap = math.ceil(len(list) / 2)
 
     # Verifica se o gap é maior que 0 e executa o laço
     while gap > 0:

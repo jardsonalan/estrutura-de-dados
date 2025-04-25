@@ -1,11 +1,9 @@
+import math
+
 # Shell Sort
 def shell_sort(list: list[int]) -> list[int]:
     # Divide o tamanho da lista pela metade, utilizando uma divisão inteira, para pegar o intervalo da operação
-    gap = len(list) // 2
-    
-    # Verifica se o valor do gap é ímpar e adiciona mais 1 no ciclo da operação, para executar todas as rodadas de troca
-    if gap % 2 != 0:
-        gap += 1
+    gap = math.ceil(len(list) / 2)
 
     # Verifica se o gap é maior que 0 e executa o laço
     while gap > 0:
@@ -27,7 +25,7 @@ def shell_sort(list: list[int]) -> list[int]:
 
     return list
 
-lista_desordenada = [3, 1, 5, 10, 15, 90, 2]
+lista_desordenada = [3, 1, 5, 10, 15, 90, 2, 23, 8]
 print("Lista Desordenada")
 print(lista_desordenada)
 lista_ordenada = shell_sort(lista_desordenada)
