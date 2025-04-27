@@ -1,7 +1,7 @@
 import math
 
 # Shell Sort
-def shell_sort(list: list[int]) -> list[int]:
+def shell_sort(list: list[str]) -> list[str]:
     # Divide o tamanho da lista pela metade para pegar o intervalo da operação
     # Utiliza o método ceil, da biblioteca math, para pegar o teto da divisão
     gap = math.ceil(len(list) / 2)

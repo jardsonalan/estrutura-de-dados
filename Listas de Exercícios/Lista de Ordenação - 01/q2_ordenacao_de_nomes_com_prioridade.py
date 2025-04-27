@@ -1,5 +1,5 @@
 # Inserção Ordenada
-def insertion(list, index: int) -> list:
+def insertion(list: list[tuple], index: int) -> list[tuple]:
     for i in range(index, 0, -1):
         # Verifica se o item atual é menor que o item que está a sua frente
         if list[i][1] < list[i - 1][1]:
@@ -11,7 +11,7 @@ def insertion(list, index: int) -> list:
     return list
 
 # Insertion Sort
-def insertion_sort(list) -> list:
+def insertion_sort(list: tuple) -> list[tuple]:
     index = 1 # Variável responsável por armazenar a quantidade de passos do laço
     while index < len(list): # Condição de parada
         list = insertion(list, index) # A lista irá receber uma nova lista até que ela esteja totalmente ordenada
