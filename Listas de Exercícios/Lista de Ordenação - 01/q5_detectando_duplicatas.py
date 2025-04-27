@@ -2,7 +2,8 @@ import math
 
 # Shell Sort
 def shell_sort(list: list[int]) -> list[int]:
-    # Divide o tamanho da lista pela metade, utilizando uma divisão inteira, para pegar o intervalo da operação
+    # Divide o tamanho da lista pela metade para pegar o intervalo da operação
+    # Utiliza o método ceil, da biblioteca math, para pegar o teto da divisão
     gap = math.ceil(len(list) / 2)
 
     # Verifica se o gap é maior que 0 e executa o laço

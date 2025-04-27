@@ -1,4 +1,5 @@
 import time
+import math
 
 # Inserção Ordenada
 def insertion(list: list[int], index: int) -> list[int]:
@@ -24,12 +25,9 @@ def insertion_sort(list: list[int]) -> list[int]:
 
 # Shell Sort
 def shell_sort(list: list[int]) -> list[int]:
-    # Divide o tamanho da lista pela metade, utilizando uma divisão inteira, para pegar o intervalo da operação
-    gap = len(list) // 2
-    
-    # Verifica se o valor do gap é ímpar e adiciona mais 1 no ciclo da operação, para executar todas as rodadas de troca
-    if gap % 2 != 0:
-        gap += 1
+    # Divide o tamanho da lista pela metade para pegar o intervalo da operação
+    # Utiliza o método ceil, da biblioteca math, para pegar o teto da divisão
+    gap = math.ceil(len(list) / 2)
 
     # Verifica se o gap é maior que 0 e executa o laço
     while gap > 0:
