@@ -1,12 +1,17 @@
 import math
 from time import time
 
+# Merge Sort
 def merge_sort(list: list[int]) -> list[int]:
+  # Caso base: se a lista tiver apenas um elemento, indica que ela já está ordenada
   if len(list) == 1:
-    return list
+    return list # Retorna a lista ordenada
 
+  # Divide a lista pela metade utilizando uma divisão inteira
   metade = len(list) // 2
   
+  # Aplica recursivamente o merge_sort nas duas metades
+  # Depois junta as duas listas e aplica o shell_sort para ordená-las
   return shell_sort(merge_sort(list[:metade]) + merge_sort(list[metade:]))
 
 
@@ -23,7 +28,6 @@ def shell_sort(list: list[int]) -> list[int]:
 
     gap -= 1
 
-  print('Shell Sort:', list)
   return list
 
 lista = [3, 1, 5, 2, 4, 9]
