@@ -1,4 +1,3 @@
-import math
 from time import time
 
 # Merge Sort
@@ -14,21 +13,22 @@ def merge_sort(list: list[int]) -> list[int]:
   # Depois junta as duas listas e aplica o shell_sort para ordená-las
   return shell_sort(merge_sort(list[:metade]) + merge_sort(list[metade:]))
 
-
-def shell_sort(list: list[int]) -> list[int]:
-  gap = math.ceil(len(list) / 2)
+def shell_sort(lista: list[int]) -> list[int]:
+  gap = len(lista) // 2
 
   while gap > 0:
-    for index in range(0, len(list) - gap):
-      aux = list[index]
+    for i in range(len(lista)):
+      aux = lista[i]
 
-      if list[index + gap] < aux:
-        list[index] = list[index + gap]
-        list[index + gap] = aux
+      while i >= gap and lista[i - gap] > aux:
+        lista[i] = lista[i - gap]
+        i -= gap
 
-    gap -= 1
-
-  return list
+      lista[i] = aux
+    
+    gap //= 2
+   
+  return lista
 
 lista = [3, 1, 5, 2, 4, 9]
 
