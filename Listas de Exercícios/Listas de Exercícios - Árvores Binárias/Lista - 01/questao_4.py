@@ -3,10 +3,10 @@ from binarytree import bst, Node
 arvore_binaria = bst(height=3, is_perfect=True)
 print(arvore_binaria)
 
-def inorder(node):
+def in_order(node):
   if node is None:
     return []
-  return inorder(node.left) + [node.value] + inorder(node.right)
+  return in_order(node.left) + [node.value] + in_order(node.right)
 
 print('In-Order:')
-print(inorder(arvore_binaria))
+print(in_order(arvore_binaria))

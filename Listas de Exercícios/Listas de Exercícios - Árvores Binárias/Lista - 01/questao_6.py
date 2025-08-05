@@ -11,5 +11,5 @@ def busca(node, valor):
   elif valor < node.value:
     return busca(node.left, valor)
   return busca(node.right, valor)
-      
+
 print('Resultado:', busca(arvore_binaria, 6))
